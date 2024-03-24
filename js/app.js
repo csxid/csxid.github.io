@@ -23,27 +23,25 @@ const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGro
 function Navigation() {
   return ( 
   <Navbar bg="light" expand="md">
-  <Container fluid>
 
-    {/* <MyComponent></MyComponent> */}
+    <Nav.Link as={Link} to="/">
+      <Navbar.Brand >
+        <Switch>
+          <Route exact path="/"> Home </Route>
+          <Route> <span className="d-none d-md-inline">Nav</span> <i className="d-md-none  fa-solid fa-xl fa-chevron-left"></i> </Route>
+        </Switch>
+      </Navbar.Brand>
+    </Nav.Link>
 
-    <Nav.Link as={Link} to="/"><Navbar.Brand >
-    <Switch>
-      <Route exact path="/"> Home </Route>
-      <Route> <span className="d-none d-md-inline">Nav</span> <i className="d-md-none  fa-solid fa-xl fa-chevron-left"></i> </Route>
-    </Switch>
-    </Navbar.Brand></Nav.Link>
+    <Navbar.Toggle />
     
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-      {/* <Nav.Link as={Link} to="/energy">Energy</Nav.Link> */}
-      <Nav.Link as={Link} to="/periodicTable">Energy & Polarisation</Nav.Link>
-      <Nav.Link as={Link} to="/magneticField">Magnetic Field</Nav.Link>
-
+        <Nav.Link as={Link} to="/periodicTable">Energy & Polarisation</Nav.Link>
+        <Nav.Link as={Link} to="/magneticField">Magnetic Field</Nav.Link>
       </Nav>
     </Navbar.Collapse>
 
-  </Container>
   </Navbar>
 );
 }
@@ -53,16 +51,15 @@ function Navigation() {
 class App extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = { liked: false };
     }
 
     render() {
       return (
             <Router>
-              <Navigation />
               <Container fluid>
+                <Navigation />
                 <Switch>
-                  <Route exact path="/"> <Dashboard /> </Route>
+                  <Route exact path="/">              <Dashboard />         </Route>
                   <Route exact path="/periodicTable"> <PeriodicTablePage /> </Route>
                   <Route exact path="/magneticField"> <MagneticFieldPage /> </Route>
                 </Switch>
