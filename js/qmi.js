@@ -127,7 +127,7 @@ function QMIVisualisation() {
 
 
   return(
-    <div ref={divRef}></div>
+    <div  ref={divRef}></div>
   );
 }
 

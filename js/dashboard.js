@@ -1,16 +1,9 @@
-const Alert = ReactBootstrap.Alert;
-
-const Container = ReactBootstrap.Container;
-const Row = ReactBootstrap.Row;
-const Col = ReactBootstrap.Col;
-
-const Button = ReactBootstrap.Button;
-const Card = ReactBootstrap.Card;
-
-
-const Form = ReactBootstrap.Form;
 
 const Offcanvas = ReactBootstrap.Offcanvas;
+
+
+const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert, Tab, Tabs} = ReactBootstrap;
+
 
 
 
@@ -53,11 +46,9 @@ function Dashboard() {
 
         {/* <ScanVisualization></ScanVisualization> */}
 
+        <ControlledTabs />
 
-        <QMIVisualisation></QMIVisualisation>
 
-
-        <LaminographyVisualisation></LaminographyVisualisation>
 
 
         {/* <Card >
@@ -109,3 +100,25 @@ function Dashboard() {
 
 
 
+
+
+function ControlledTabs() {
+  const [key, setKey] = React.useState('home');
+
+  return (
+    <Tabs
+      id="controlled-tab-example"
+      activeKey={key}
+      onSelect={(k) => setKey(k)}
+      className="mb-3"
+    >
+      <Tab eventKey="tab1" title="tab 1">
+         <QMIVisualisation></QMIVisualisation>
+      </Tab>
+      <Tab eventKey="tab2" title="tab 2">
+        <LaminographyVisualisation></LaminographyVisualisation>
+      </Tab>
+     
+    </Tabs>
+  );
+}
