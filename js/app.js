@@ -18,25 +18,18 @@ const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGro
 // import MyComponent from './src/MyComponent.js'; // Importing MyComponent from another file
 
 
-
-
 function Navigation() {
   return ( 
   <Navbar bg="light" expand="md">
 
     <Nav.Link as={Link} to="/">
-      <Navbar.Brand >
-        <Switch>
-          <Route exact path="/"> Home </Route>
-          <Route> <span className="d-none d-md-inline">Nav</span> <i className="d-md-none  fa-solid fa-xl fa-chevron-left"></i> </Route>
-        </Switch>
-      </Navbar.Brand>
+      <Navbar.Brand > Home  </Navbar.Brand>
     </Nav.Link>
 
     <Navbar.Toggle />
     
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
+      <Nav>
         <Nav.Link as={Link} to="/periodicTable">Energy & Polarisation</Nav.Link>
         <Nav.Link as={Link} to="/magneticField">Magnetic Field</Nav.Link>
       </Nav>

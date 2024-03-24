@@ -1,23 +1,5 @@
-// const Alert = ReactBootstrap.Alert;
-
-// const Container = ReactBootstrap.Container;
-// const Row = ReactBootstrap.Row;
-// const Col = ReactBootstrap.Col;
-
-// const Button = ReactBootstrap.Button;
-// const Card = ReactBootstrap.Card;
-
-// const ToggleButton = ReactBootstrap.ToggleButton;
-// const ToggleButtonGroup = ReactBootstrap.ToggleButtonGroup;
-
-// const Form = ReactBootstrap.Form;
-// const Table = ReactBootstrap.Table;
 
 const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
-
-
-// import ThreeRenderer from "./magneticFieldWedgeVisualisation.js"
-
 
 
 function MagneticFieldPage() {
@@ -33,17 +15,8 @@ function MagneticFieldPage() {
     <Container>
       <Row>
 
-{/* 
-        <Col xs={12}>
-          In-plane magnitude: {magnitude} mT
-          <Form.Range min={1} max={250} value={magnitude} onChange={e => handleChangeMagnitude(e.target.value)} />
-          Out-of-plane magnitude: {theta} mT
-          <Form.Range min={-90} max={90} value={theta} onChange={e => setTheta(e.target.value)} />
-          In-plane angle, Phi:   {phi} degrees
-          <Form.Range min={0} max={250} value={phi} onChange={e => setPhi(e.target.value)} />
-        </Col> */}
 
-<WedgeApp />
+        <WedgeApp />
 
         <Col md={6} >
           <ViewField minMagnitudeOOP={-1} maxMagnitudeOOP={1} maxMagnitudeIP={4}/>

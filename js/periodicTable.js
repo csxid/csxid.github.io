@@ -1,24 +1,7 @@
-// const Alert = ReactBootstrap.Alert;
-
-// const Container = ReactBootstrap.Container;
-// const Row = ReactBootstrap.Row;
-// const Col = ReactBootstrap.Col;
-
-// const Button = ReactBootstrap.Button;
-// const Card = ReactBootstrap.Card;
-
-// const ToggleButton = ReactBootstrap.ToggleButton;
-// const ToggleButtonGroup = ReactBootstrap.ToggleButtonGroup;
-
-// const Form = ReactBootstrap.Form;
-// const Table = ReactBootstrap.Table;
-
-
 const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
 
 const maxEnergy = 2000;
 const minEnergy = 250
-
 
 function PeriodicTablePage() {
   const [selectedElement, setSelectedElement] = React.useState(" ");
