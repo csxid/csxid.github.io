@@ -15,19 +15,44 @@ function QMIVisualisation() {
 
   React.useEffect(() => {
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( 500, 350 );
+    renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
     divRef.current.appendChild(renderer.domElement)
 
     const controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+
+      // Resize canvas to match display size
+  // const resizeCanvasToDisplaySize = () => {
+  //   const canvas = renderer.domElement;
+  //   const width = canvas.clientWidth;
+  //   const height = canvas.clientHeight;
+  //   // console.log(divRef.current.clientWidth);
+
+  //   if (canvas.width !== width || canvas.height !== height) {
+  //     renderer.setSize(width, height, false);
+  //     camera.aspect = width / height;
+  //     camera.updateProjectionMatrix();
+  //   }
+  // };
+
+  const checkSize = function() {
+    renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
+  }
+
 
     const animate = function () {
       requestAnimationFrame( animate );
       controls.update();
       renderer.render( scene, camera );
+      checkSize();
+      // resizeCanvasToDisplaySize();
     };
     animate();
   
   }, []);
+
+
+
 
 
 
@@ -127,7 +152,8 @@ function QMIVisualisation() {
 
 
   return(
-    <div  ref={divRef}></div>
+    // <div  style={{ width: '100%', height: '100vh' }}  ref={divRef}></div>
+    <div  style={{ width: '100%'}}  ref={divRef}></div>
   );
 }
 

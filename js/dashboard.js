@@ -103,15 +103,10 @@ function Dashboard() {
 
 
 function ControlledTabs() {
-  const [key, setKey] = React.useState('home');
+  const [key, setKey] = React.useState('tab1');
 
   return (
-    <Tabs
-      id="controlled-tab-example"
-      activeKey={key}
-      onSelect={(k) => setKey(k)}
-      className="mb-3"
-    >
+    <Tabs id="controlled-tab-example" activeKey={key} onSelect={(k) => setKey(k)} className="mb-3"  >
       <Tab eventKey="tab1" title="tab 1">
          <QMIVisualisation></QMIVisualisation>
       </Tab>

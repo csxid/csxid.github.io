@@ -87,16 +87,23 @@ function LaminographyVisualisation() {
 
   React.useEffect(() => {
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( 500, 350 );
+    // renderer.setSize( 500, 350 );
+    renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
     divRef.current.appendChild(renderer.domElement)
 
     const controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+
+    const checkSize = function() {
+      renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
+    }
 
     const animate = function () {
       requestAnimationFrame( animate );
       table.rotation.z += 0.005;
       controls.update();
       renderer.render( scene, camera );
+      checkSize();
     };
     animate();
   
@@ -178,7 +185,8 @@ scene.add( detector.translateZ(exitBeamLength+0.1) );
 
 
   return(
-    <div ref={divRef}></div>
+    // <div  style={{ width: '100%', height: '100vh' }}  ref={divRef}></div>
+    <div  style={{ width: '100%'}}  ref={divRef}></div>
   );
 }
 
