@@ -11,7 +11,7 @@ function AR() {
 
 
         <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
-            style={{width: "800px", height: "90%"}}
+            style={{width: "100%", height: "90%"}}
             src="./js/ar/NeilArmstrong.glb" 
             ar environment-image="./js/ar/moon_1k.hdr" 
             poster="./js/ar/NeilArmstrong.webp" 
