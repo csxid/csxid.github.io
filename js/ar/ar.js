@@ -1,22 +1,40 @@
 
 
 function AR() {
-  const [energy, setEnergy] = React.useState(700);
-  const [laa, setLaa] = React.useState(0);
-  const [coherence, setCoherence] = React.useState(1);
+  const [key, setKey] = React.useState('tab1');
 
     return (
       <div style={{ height: '100vh' }}>
         {/* <h1>AR</h1> */}
 
 
-        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
-            style={{width: "100%", height: "90%"}}
-            src="./js/ar/NeilArmstrong.glb" 
-            ar environment-image="./js/ar/moon_1k.hdr" 
-            poster="./js/ar/NeilArmstrong.webp" 
-            shadow-intensity="1" camera-controls touch-action="pan-y">
-        </model-viewer>
+        <Tabs variant="pills" id="ar-tabs" activeKey={key} onSelect={(k) => setKey(k)} >
+          <Tab eventKey="tab1" title="Astronaught" style={{ height: '100vh' }} >
+            
+            <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                style={{width: "100%", height: "80%"}}
+                src="./js/ar/NeilArmstrong.glb" 
+                ar environment-image="./js/ar/moon_1k.hdr" 
+                poster="./js/ar/NeilArmstrong.webp" 
+                shadow-intensity="1" camera-controls touch-action="pan-y">
+            </model-viewer>
+          </Tab>
+
+          <Tab eventKey="tab2" title="Data" style={{ height: '100vh' }}>
+          <model-viewer 
+              style={{width: "100%", height: "80%"}}
+              src="./js/ar/cylinder.gltf"
+              camera-controls >
+          </model-viewer>
+          </Tab>
+        
+        </Tabs>
+
+
+
+
+
+
 
 
 
