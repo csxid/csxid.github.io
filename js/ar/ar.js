@@ -24,6 +24,7 @@ function AR() {
           <model-viewer 
               style={{width: "100%", height: "80%"}}
               src="./js/ar/cylinder.gltf"
+              ar
               camera-controls >
           </model-viewer>
           </Tab>
