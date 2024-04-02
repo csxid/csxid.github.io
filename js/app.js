@@ -51,13 +51,18 @@ class App extends React.Component {
       return (
             <Router>
               <Container fluid>
+              <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
                 <Navigation />
-                <Switch>
-                  <Route exact path="/">              <Dashboard />         </Route>
-                  <Route exact path="/periodicTable"> <PeriodicTablePage /> </Route>
-                  <Route exact path="/magneticField"> <MagneticFieldPage /> </Route>
-                  <Route exact path="/ar"> <AR /> </Route>
-                </Switch>
+
+                <div style={{ flex: 1, overflow: 'auto', background: 'white' }}>
+                  <Switch>
+                    <Route exact path="/">              <Dashboard />         </Route>
+                    <Route exact path="/periodicTable"> <PeriodicTablePage /> </Route>
+                    <Route exact path="/magneticField"> <MagneticFieldPage /> </Route>
+                    <Route exact path="/ar"> <AR /> </Route>
+                  </Switch>
+                </div>
+              </div>
               </Container>
             </Router>
       );
