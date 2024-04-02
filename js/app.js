@@ -32,6 +32,7 @@ function Navigation() {
       <Nav>
         <Nav.Link as={Link} to="/periodicTable">Energy & Polarisation</Nav.Link>
         <Nav.Link as={Link} to="/magneticField">Magnetic Field</Nav.Link>
+        <Nav.Link as={Link} to="/ar">AR</Nav.Link>
       </Nav>
     </Navbar.Collapse>
 
@@ -55,6 +56,7 @@ class App extends React.Component {
                   <Route exact path="/">              <Dashboard />         </Route>
                   <Route exact path="/periodicTable"> <PeriodicTablePage /> </Route>
                   <Route exact path="/magneticField"> <MagneticFieldPage /> </Route>
+                  <Route exact path="/ar"> <AR /> </Route>
                 </Switch>
               </Container>
             </Router>
