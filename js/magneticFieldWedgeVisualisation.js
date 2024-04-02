@@ -118,11 +118,11 @@ class ThreeRenderer extends React.Component {
     magnetTable.add(wedge3);
     magnetTable.add(wedge4);
 
-
+    var animationFrameId;
 
     // Create an animate function
     const animate = () => {
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
 
       wedge1.position.y = -this.sep1/2;
       wedge2.position.y = this.sep1/2;
@@ -137,7 +137,12 @@ class ThreeRenderer extends React.Component {
     };
 
     animate();
-    window.addEventListener('resize', this.handleResize);
+    // window.addEventListener('resize', this.handleResize);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId); // Stop the animation loop
+      renderer.dispose(); // Dispose of WebGL resources
+    };
   }
 
 
@@ -151,6 +156,8 @@ class ThreeRenderer extends React.Component {
 
 
   handleResize = () => {
+    // console.log(this.mount.current);
+    // this.renderer.setSize(this.mount.current.clientWidth, this.mount.current.clientWidth*0.8);
     // const { clientWidth, clientHeight } = this.mount;
     // console.log(clientWidth, clientHeight);
     // this.camera.aspect = clientWidth / clientHeight;
@@ -162,7 +169,7 @@ class ThreeRenderer extends React.Component {
 
   render() {
     // console.log(this.props);
-    return <div ref={(ref) => (this.mount = ref)} />;
+    return <div style={{ width: '100%'}} ref={(ref) => (this.mount = ref)} />;
   }
 }
 

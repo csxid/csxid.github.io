@@ -93,19 +93,26 @@ function LaminographyVisualisation() {
 
     const controls = new THREE.OrbitControls( camera, renderer.domElement );
 
+    var animationFrameId;
 
     const checkSize = function() {
       renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
     }
 
     const animate = function () {
-      requestAnimationFrame( animate );
+      animationFrameId = requestAnimationFrame( animate );
       table.rotation.z += 0.005;
       controls.update();
       renderer.render( scene, camera );
       checkSize();
     };
     animate();
+
+    
+    return () => {
+      cancelAnimationFrame(animationFrameId); // Stop the animation loop
+      renderer.dispose(); // Dispose of WebGL resources
+    };
   
   }, []);
 

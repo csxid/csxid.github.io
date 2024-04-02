@@ -34,20 +34,26 @@ function QMIVisualisation() {
   //     camera.updateProjectionMatrix();
   //   }
   // };
+  var animationFrameId;
 
   const checkSize = function() {
+    // console.log("checksize");
     renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
   }
 
-
     const animate = function () {
-      requestAnimationFrame( animate );
+      animationFrameId = requestAnimationFrame( animate );
       controls.update();
       renderer.render( scene, camera );
-      checkSize();
-      // resizeCanvasToDisplaySize();
+      // checkSize();
     };
+    // window.addEventListener('resize', checkSize());
     animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId); // Stop the animation loop
+      renderer.dispose(); // Dispose of WebGL resources
+    };
   
   }, []);
 
