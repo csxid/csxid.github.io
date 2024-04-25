@@ -1,7 +1,4 @@
-
 const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
-
-
 
 
 function QMIVisualisation() {
@@ -101,8 +98,8 @@ function QMIVisualisation() {
       shape.holes.push( ring(2,3) );
       
       var mesh = new THREE.Mesh(
-          new THREE.ShapeBufferGeometry( shape ),
-          new THREE.MeshBasicMaterial({ color: 0xaaaa00, side:THREE.DoubleSide})
+        new THREE.ShapeBufferGeometry( shape ),
+        new THREE.MeshBasicMaterial({ color: 0xaaaa00, side:THREE.DoubleSide})
       );
       return mesh;
   }
@@ -112,8 +109,8 @@ function QMIVisualisation() {
       shape.holes.push( ring(0,2) );
 
       var mesh = new THREE.Mesh(
-          new THREE.ShapeBufferGeometry( shape ),
-          new THREE.MeshBasicMaterial({ color: 0x666600, side:THREE.DoubleSide})
+        new THREE.ShapeBufferGeometry( shape ),
+        new THREE.MeshBasicMaterial({ color: 0x666600, side:THREE.DoubleSide})
       );
       return mesh;
   }
@@ -124,20 +121,18 @@ function QMIVisualisation() {
 
   // detector
   var detector = new THREE.Mesh(
-          new THREE.ShapeBufferGeometry( square(50) ),
-          new THREE.MeshBasicMaterial({ color: 0x220000, opacity:0.5, transparent:true, side:THREE.DoubleSide})
+    new THREE.ShapeBufferGeometry( square(50) ),
+    new THREE.MeshBasicMaterial({ color: 0x220000, opacity:0.5, transparent:true, side:THREE.DoubleSide})
   );
   scene.add( detector.translateZ(50) );
 
 
 
-      // sample
+  // sample
   const geometry = new THREE.BoxGeometry(2,2,2);
   const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
   const cube = new THREE.Mesh( geometry, material );
   scene.add( cube );
-
-
 
 
 
@@ -158,8 +153,7 @@ function QMIVisualisation() {
 
 
   return(
-    // <div  style={{ width: '100%', height: '100vh' }}  ref={divRef}></div>
-    <div  style={{ width: '100%'}}  ref={divRef}></div>
+    <div  style={{ height: '100vh'}}  ref={divRef}></div>
   );
 }
 

@@ -41,13 +41,14 @@ function Dashboard() {
 
     return (
       <div>
-        <h1>CSXID visualisations</h1>
-
-
         {/* <ScanVisualization></ScanVisualization> */}
 
-        <ControlledTabs />
+        <Row>
 
+        <Col lg={6}>
+        <ControlledTabs />
+        </Col>
+        </Row>
 
 
 
@@ -97,8 +98,6 @@ function Dashboard() {
       </div>
       );
 }
-
-
 
 
 

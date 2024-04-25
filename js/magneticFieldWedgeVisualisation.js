@@ -1,13 +1,4 @@
-// import React from 'react';
-// import * as THREE from 'three';
 const { Form, Button , Container, Row, Col} = ReactBootstrap;
-
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-// import { wedge , table, sample } from './src/threeComponent.js';
-
-
-
-
 
 
 class WedgeApp extends React.Component {
@@ -26,11 +17,11 @@ class WedgeApp extends React.Component {
             <Container>
               <Row>
 
-                <Col>
+                <Col md={6}>
                   <ThreeRenderer sep1={this.state.sep1} sep2={this.state.sep2} rotation={this.state.rotation}/>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Form.Label>Separation 1</Form.Label>
                   <Form.Control value={this.state.sep1}           onChange={(e) => this.setState({sep1: parseInt(e.target.value)})}/>
                   <Form.Range   value={this.state.sep1} min={20} max={200} onChange={(e) => this.setState({sep1: parseInt(e.target.value)})} />
@@ -69,12 +60,15 @@ class ThreeRenderer extends React.Component {
     this.sep1 = this.props.sep1;
     this.sep2 = this.props.sep2;
     this.rotation = this.props.rotation;
+
+    this.mount = null;
   }
 
   componentDidMount() {
     // Initialize the Three.js renderer in the componentDidMount lifecycle method
     // this.renderer.setSize(this.mount.clientWidth, this.mount.clientHeight);
-    this.renderer.setSize( 800, 500 );
+    // this.renderer.setSize( 800, 500 );
+    this.renderer.setSize(this.mount.clientWidth, this.mount.clientWidth*0.8);
     this.mount.appendChild(this.renderer.domElement);
 
     const controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );

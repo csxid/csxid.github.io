@@ -15,8 +15,9 @@ function MagneticFieldPage() {
     <Container>
       <Row>
 
-
         <WedgeApp />
+
+
 
         <Col md={6} >
           <ViewField minMagnitudeOOP={-1} maxMagnitudeOOP={1} maxMagnitudeIP={4}/>
@@ -114,7 +115,8 @@ function ViewField({minMagnitudeOOP, maxMagnitudeOOP, maxMagnitudeIP}) {
   React.useEffect(() => {
 
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( 500, 350 );
+    // renderer.setSize( 500, 350 );
+    renderer.setSize(divRef.current.clientWidth, divRef.current.clientWidth*0.8);
     divRef.current.appendChild(renderer.domElement)
 
     const controls = new THREE.OrbitControls( camera, renderer.domElement );

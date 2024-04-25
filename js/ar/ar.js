@@ -21,12 +21,16 @@ function AR() {
           </Tab>
 
           <Tab eventKey="tab2" title="Data" style={{ height: '100vh' }}>
-          <model-viewer 
-              style={{width: "100%", height: "80%"}}
-              src="./js/ar/cylinder.gltf"
-              ar
-              camera-controls >
-          </model-viewer>
+            
+            <model-viewer 
+                style={{width: "100%", height: "80%"}}
+                src="./js/ar/cylinder.gltf"
+                camera-orbit="60deg 60deg 500m"
+                ar
+                camera-controls >
+            </model-viewer>
+
+            <p> Data from https://www.nature.com/articles/srep03857 which has been converted to .gltf using pyvista.</p>
           </Tab>
         
         </Tabs>

@@ -20,34 +20,6 @@ function PeriodicTablePage() {
 
 
 
-
-function Filters() {
-  const [value, setValue] = React.useState(["K", "L2","L3"]);
-
-  const handleChange = (val) => setValue(val);
-
-  return (
-    <div>
-      {/* <ToggleButton id="tbg-btn-1" value={"K"}> K </ToggleButton> */}
-
-
-    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-      <ToggleButton id="tbg-btn-1" variant="outline-primary" value={"K"}> K </ToggleButton>
-      </ToggleButtonGroup>
-
-      <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-      <ToggleButton id="tbg-btn-2" variant="outline-primary" value={"L1"}> L1 </ToggleButton>
-      <ToggleButton id="tbg-btn-3" variant="outline-primary" value={"L2"}> L2 </ToggleButton>
-      <ToggleButton id="tbg-btn-4" variant="outline-primary" value={"L3"}> L3 </ToggleButton>
-    </ToggleButtonGroup>
-    </div>
-  );
-
-  
-}
-
-
-
 function PeriodicTable({selectedElement, setSelectedElement}) {
   const handleClick = (symbol) => {
     setSelectedElement(symbol);
@@ -81,6 +53,30 @@ function PeriodicTable({selectedElement, setSelectedElement}) {
 
 
 
+function Filters() {
+  const [value, setValue] = React.useState(["K", "L2","L3"]);
+
+  const handleChange = (val) => setValue(val);
+
+  return (
+    <div>
+      {/* <ToggleButton id="tbg-btn-1" value={"K"}> K </ToggleButton> */}
+
+
+    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
+      <ToggleButton id="tbg-btn-1" variant="outline-primary" value={"K"}> K </ToggleButton>
+      </ToggleButtonGroup>
+
+      <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
+      <ToggleButton id="tbg-btn-2" variant="outline-primary" value={"L1"}> L1 </ToggleButton>
+      <ToggleButton id="tbg-btn-3" variant="outline-primary" value={"L2"}> L2 </ToggleButton>
+      <ToggleButton id="tbg-btn-4" variant="outline-primary" value={"L3"}> L3 </ToggleButton>
+    </ToggleButtonGroup>
+    </div>
+  );
+
+  
+}
 
 
 
