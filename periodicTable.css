@@ -61,29 +61,44 @@
     font-size: min(2vw, 16px); /* Scales with size of box */
 }
 
+
+
+.availabilityKPartial{
+    background: hwb(120 70% 0%);
+}
+.availabilityLPartial{
+    background: hwb(214 70% 0%);
+}
+.availabilityMPartial{
+    background: hwb(280 70% 0%);
+}
+
+.availabilityM32Partial{
+    background: hwb(280 70% 0%);
+}
+.availabilityM45Partial{
+    background: hwb(280 70% 0%);
+}
+
+
+
 .availabilityKFull{
     background: hwb(120 30% 0%);
 }
-
 .availabilityLFull{
     background: hwb(214 30% 0%);
 }
-
 .availabilityMFull{
-    background: hwb(281 30% 0%);
+    background: hwb(280 30% 0%);
 }
 
-.availabilityPartialK{
-    background: hwb(120 70% 0%);
+.availabilityM32Full{
+    background: hwb(280 30% 0%);
+}
+.availabilityM45Full{
+    background: hwb(280 30% 0%);
 }
 
-.availabilityPartialL{
-    background: hwb(214 70% 0%);
-}
-
-.availabilityPartialM{
-    background: hwb(281 70% 0%);
-}
 
 
 

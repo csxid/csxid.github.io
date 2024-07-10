@@ -8,6 +8,7 @@ function AR() {
         {/* <h1>AR</h1> */}
 
 
+
         <Tabs variant="pills" id="ar-tabs" activeKey={key} onSelect={(k) => setKey(k)} >
           <Tab eventKey="tab1" title="Astronaught" style={{ height: '100vh' }} >
             
@@ -32,6 +33,17 @@ function AR() {
 
             <p> Data from https://www.nature.com/articles/srep03857 which has been converted to .gltf using pyvista.</p>
           </Tab>
+
+          {/* <Tab eventKey="tab3" title="PGM" style={{ height: '100vh' }}>
+            <model-viewer 
+                style={{width: "100%", height: "80%"}}
+                src="./js/ar/pgm.gltf"
+                camera-orbit="60deg 60deg 500m"
+                ar
+                camera-controls >
+            </model-viewer>
+
+          </Tab> */}
         
         </Tabs>
 
