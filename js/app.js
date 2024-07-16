@@ -1,9 +1,9 @@
-// const Link = ReactRouterDOM.Link;
-// const Route = ReactRouterDOM.Route;
-// const BrowserRouter = ReactRouterDOM.BrowserRouter;
-// const Router = ReactRouterDOM.HashRouter;
-// const Routes = ReactRouterDOM.Routes;
-// const Switch = ReactRouterDOM.Switch;
+const Link = ReactRouterDOM.Link;
+const Route = ReactRouterDOM.Route;
+const BrowserRouter = ReactRouterDOM.BrowserRouter;
+const Router = ReactRouterDOM.HashRouter;
+const Routes = ReactRouterDOM.Routes;
+const Switch = ReactRouterDOM.Switch;
 
 // const Nav = ReactBootstrap.Nav;
 // const Navbar = ReactBootstrap.Navbar;
@@ -11,7 +11,7 @@
 
 const {Nav, Navbar, NavDropdown, Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
 
-const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
+// const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
 
 
 

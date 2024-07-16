@@ -3,7 +3,15 @@ const Offcanvas = ReactBootstrap.Offcanvas;
 
 
 const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert, Tab, Tabs} = ReactBootstrap;
-const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
+
+
+const Link = ReactRouterDOM.Link;
+const Route = ReactRouterDOM.Route;
+const BrowserRouter = ReactRouterDOM.BrowserRouter;
+const Router = ReactRouterDOM.HashRouter;
+const Routes = ReactRouterDOM.Routes;
+const Switch = ReactRouterDOM.Switch;
+// const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
 
 
 
@@ -77,7 +85,7 @@ function Dashboard() {
         </Card>
 
 
-        <Card>
+        <Card style={{ backgroundColor: '#6EBAA7' }}>
           <Link to="/aframe">
           <Card.Body>
             <Card.Title>Beamline tour</Card.Title>
