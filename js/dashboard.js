@@ -3,34 +3,50 @@ const Offcanvas = ReactBootstrap.Offcanvas;
 
 
 const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert, Tab, Tabs} = ReactBootstrap;
+const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
 
 
 
 
-function OffCanvasExample({ name, ...props }) {
-  const [show, setShow] = React.useState(false);
+// function OffCanvasExample({ name, ...props }) {
+//   const [show, setShow] = React.useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+//   const handleClose = () => setShow(false);
+//   const handleShow = () => setShow(true);
+
+//   return (
+//     <div>
+//       <Button variant="primary" onClick={handleShow} className="me-2">
+//         {name}
+//       </Button>
+//       <Offcanvas show={show} onHide={handleClose} {...props}>
+//         <Offcanvas.Header closeButton>
+//           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+//         </Offcanvas.Header>
+//         <Offcanvas.Body>
+//           Some text as placeholder. In real life you can have the elements you
+//           have chosen. Like, text, images, lists, etc.
+//         </Offcanvas.Body>
+//       </Offcanvas>
+//     </div>
+//   );
+// }
+
+
+function Aframe() {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow} className="me-2">
-        {name}
-      </Button>
-      <Offcanvas show={show} onHide={handleClose} {...props}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
-      </Offcanvas>
+      <h1> Aframe </h1>
+      Click here to enter the beamline argumented reality
+      <a href="./aframe"> here </a>
+
+
+      Click here to enter the beamline argumented reality without a marker
+      <a href="./aframe/nomarker.html"> here </a>
     </div>
   );
 }
-
 
 
 
@@ -43,21 +59,40 @@ function Dashboard() {
       <div>
         {/* <ScanVisualization></ScanVisualization> */}
 
+        <h1> CSXID dashboard </h1>
+
+ {/* <ControlledTabs /> */}
+
         <Row>
 
         <Col lg={6}>
-        <ControlledTabs />
+
+        <Card>
+           <Link to="/periodicTable">
+            <Card.Body>
+              <Card.Title>Energy and polarisation</Card.Title>
+              <Card.Img variant="bottom" src="images/periodicTable.png" />
+            </Card.Body>
+            </Link>
+        </Card>
+
+
+        <Card>
+          <Link to="/aframe">
+          <Card.Body>
+            <Card.Title>Beamline tour</Card.Title>
+            <Card.Img variant="bottom" src="images/pgm.png" />
+          </Card.Body>
+          </Link>
+        </Card>
+          
+         
         </Col>
         </Row>
 
 
 
-        {/* <Card >
-          <Card.Body>
-            2D imaging 
-            XAS
-          </Card.Body>
-        </Card>
+        {/* 
 
         <Card >
           <Card.Body>

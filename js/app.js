@@ -1,15 +1,17 @@
-const Link = ReactRouterDOM.Link;
-const Route = ReactRouterDOM.Route;
-const BrowserRouter = ReactRouterDOM.BrowserRouter;
-const Router = ReactRouterDOM.HashRouter;
-const Routes = ReactRouterDOM.Routes;
-const Switch = ReactRouterDOM.Switch;
+// const Link = ReactRouterDOM.Link;
+// const Route = ReactRouterDOM.Route;
+// const BrowserRouter = ReactRouterDOM.BrowserRouter;
+// const Router = ReactRouterDOM.HashRouter;
+// const Routes = ReactRouterDOM.Routes;
+// const Switch = ReactRouterDOM.Switch;
 
-const Nav = ReactBootstrap.Nav;
-const Navbar = ReactBootstrap.Navbar;
-const NavDropdown = ReactBootstrap.NavDropdown;
+// const Nav = ReactBootstrap.Nav;
+// const Navbar = ReactBootstrap.Navbar;
+// const NavDropdown = ReactBootstrap.NavDropdown;
 
-const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
+const {Nav, Navbar, NavDropdown, Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
+
+const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
 
 
 
@@ -33,7 +35,7 @@ function Navigation() {
         <Nav.Link as={Link} to="/periodicTable">Energy & Polarisation</Nav.Link>
         <Nav.Link as={Link} to="/magneticField">Magnetic Field</Nav.Link>
         <Nav.Link as={Link} to="/ar">AR</Nav.Link>
-        {/* <Nav.Link as={Link} to="/aframe">Aframe</Nav.Link> */}
+        <Nav.Link as={Link} to="/aframe">Aframe</Nav.Link>
         <Nav.Link as={Link} to="/pixels">Pixels</Nav.Link>
       </Nav>
     </Navbar.Collapse>
@@ -62,7 +64,7 @@ class App extends React.Component {
                     <Route exact path="/periodicTable"> <PeriodicTablePage /> </Route>
                     <Route exact path="/magneticField"> <MagneticFieldPage /> </Route>
                     <Route exact path="/ar"> <AR /> </Route>
-                    {/* <Route exact path="/aframe"> <Aframe /> </Route> */}
+                    <Route exact path="/aframe"> <Aframe /> </Route>
                     <Route exact path="/pixels"> <Pixels/> </Route>
                   </Switch>
                 </div>
