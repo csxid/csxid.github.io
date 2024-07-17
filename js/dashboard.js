@@ -2,7 +2,7 @@
 const Offcanvas = ReactBootstrap.Offcanvas;
 
 
-const { Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert, Tab, Tabs} = ReactBootstrap;
+const { Image, Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert, Tab, Tabs} = ReactBootstrap;
 
 
 const Link = ReactRouterDOM.Link;
@@ -11,6 +11,8 @@ const BrowserRouter = ReactRouterDOM.BrowserRouter;
 const Router = ReactRouterDOM.HashRouter;
 const Routes = ReactRouterDOM.Routes;
 const Switch = ReactRouterDOM.Switch;
+
+const useNavigate = ReactRouterDOM.useNavigate;
 // const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
 
 
@@ -49,6 +51,7 @@ function Aframe() {
       Click here to enter the beamline argumented reality
       <a href="./aframe"> here </a>
 
+<br/><br/>
 
       Click here to enter the beamline argumented reality without a marker
       <a href="./aframe/nomarker.html"> here </a>
@@ -63,20 +66,23 @@ function Dashboard() {
   const [laa, setLaa] = React.useState(0);
   const [coherence, setCoherence] = React.useState(1);
 
+  // const navigate = useNavigate();
+  // const handleClick = () => navigate('/aframe');
+
     return (
       <div>
         {/* <ScanVisualization></ScanVisualization> */}
-
+        {/* <ControlledTabs /> */}
         <h1> CSXID dashboard </h1>
 
- {/* <ControlledTabs /> */}
-
+ 
+        <Container>
         <Row>
 
         <Col lg={6}>
 
         <Card>
-           <Link to="/periodicTable">
+           <Link to="/periodicTable" style={{ textDecoration: 'inherit', color: 'inherit' }}>
             <Card.Body>
               <Card.Title>Energy and polarisation</Card.Title>
               <Card.Img variant="bottom" src="images/periodicTable.png" />
@@ -84,12 +90,16 @@ function Dashboard() {
             </Link>
         </Card>
 
-
-        <Card style={{ backgroundColor: '#6EBAA7' }}>
-          <Link to="/aframe">
+{/* none */}
+        <Card style={{ backgroundColor: '#6EBAA7' }} >
+          <Link to="/aframe" style={{ textDecoration: 'inherit', color: 'inherit' }}>
           <Card.Body>
-            <Card.Title>Beamline tour</Card.Title>
-            <Card.Img variant="bottom" src="images/pgm.png" />
+            <Container>
+            <Row>
+            <Col xs={6}> <Card.Title>Beamline tour</Card.Title> </Col>
+            <Col xs={6}> <Image src="images/pgm.png" fluid/> </Col>
+            </Row>
+            </Container>
           </Card.Body>
           </Link>
         </Card>
@@ -98,17 +108,9 @@ function Dashboard() {
         </Col>
         </Row>
 
-
+        </Container>
 
         {/* 
-
-        <Card >
-          <Card.Body>
-            2D imaging 
-            XAS
-          </Card.Body>
-        </Card>
-
 
           <Row className="py-2 gy-2 gx-2">
             <Col lg={3} xs={12}>
@@ -125,8 +127,6 @@ function Dashboard() {
                   <Form.Range min={0} max={1} step={0.01} value={coherence} onChange={e => setCoherence(e.target.value)} />
 
                   Throughput:
-
-
                   Field of view
 
                   FRC contrast to noise vs resolution.
