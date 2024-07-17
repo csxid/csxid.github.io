@@ -61,6 +61,38 @@ function Aframe() {
 
 
 
+function Examples() {
+
+  return (
+    <div>
+      <div className="embed-responsive embed-responsive-16by9">
+
+        <iframe className="embed-responsive-item"
+
+        src={`https://www.youtube.com/embed/GvyTiK9CNO0`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Embedded youtube"
+      />
+</div>
+
+                {/* https://youtu.be/GvyTiK9CNO0 */}
+        {/* example of laminography at PSI */}
+         
+
+
+        {/* https://www.youtube.com/watch?v=RbLvuSfVwuU laminography scattering simulation */}
+        {/* https://www.youtube.com/watch?v=pqaSqrmyhI8 */}
+
+        {/* https://www.youtube.com/watch?v=1LSuihaonAo */}
+
+    </div>
+  );
+}
+
+
+
 function Dashboard() {
   const [energy, setEnergy] = React.useState(700);
   const [laa, setLaa] = React.useState(0);
@@ -77,9 +109,7 @@ function Dashboard() {
 
  
         <Container>
-        <Row>
-
-        <Col lg={6}>
+        <Row xs={1} md={2} xl={3} className="g-4">
 
         <Card>
            <Link to="/periodicTable" style={{ textDecoration: 'inherit', color: 'inherit' }}>
@@ -90,7 +120,6 @@ function Dashboard() {
             </Link>
         </Card>
 
-{/* none */}
         <Card style={{ backgroundColor: '#6EBAA7' }} >
           <Link to="/aframe" style={{ textDecoration: 'inherit', color: 'inherit' }}>
           <Card.Body>
@@ -103,12 +132,26 @@ function Dashboard() {
           </Card.Body>
           </Link>
         </Card>
+
+
+        <Card  >
           
-         
-        </Col>
+          <Card.Body>
+          <Card.Title>3D imaging of electronic circuits at PSI </Card.Title>
+            <Examples />
+          </Card.Body>
+
+        </Card>
+          
         </Row>
 
         </Container>
+
+
+
+
+
+
 
         {/* 
 
