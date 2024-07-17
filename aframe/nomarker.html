@@ -1,8 +1,12 @@
 
 <html>
   <head>
-    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script> -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>
+
     <!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
+    <script src="https://unpkg.com/aframe-orbit-controls@1.3.2/dist/aframe-orbit-controls.min.js"></script>
 
   </head>
   <body>
@@ -13,16 +17,12 @@
             <a-asset-item id="pgm-obj" src="./pgm.obj"></a-asset-item>
         </a-assets>
 
-        <a-entity obj-model="obj: #pgm-obj" scale="0.001 0.001 0.001" rotation="-90 0 0" position="0 0 0"  look-controls></a-entity>
+        <a-entity obj-model="obj: #pgm-obj" scale="0.001 0.001 0.001" rotation="-90 0 0" position="0 -1 0"  wasd-controls></a-entity>
+        <!-- <a-box position='0 0 0' material='opacity: 0.5;'></a-box> -->
 
+        <a-sky color="#6EBAA7"></a-sky>
 
-      <!-- <a-marker preset='kanji'>
-        <a-box position='0 0 0' material='opacity: 0.5;'></a-box>
-    </a-marker> -->
-
-    <a-sky color="#6EBAA7"></a-sky>
-
-        <a-entity id="camera" camera position="0 1 2"></a-entity>
+        <a-entity id="camera" camera  look-controls="enabled: false" orbit-controls="target: 0 0 0; minDistance: 2; maxDistance: 10; initialPosition: 1 0.5 2; rotateSpeed: 0.5" ></a-entity>
 
       </a-scene>
   </body>
