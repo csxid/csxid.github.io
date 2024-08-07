@@ -13,7 +13,7 @@
     <div style="position:absolute; z-index:1; padding:10px;"> <br> <a href="javascript:history.back()"> <i class="fa-2xl fas fa-chevron-circle-left"></i> </a> </div>
 
 
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;   detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;'>
 
         <a-assets>
             <a-asset-item id="pgm-obj" src="./pgm.obj"></a-asset-item>

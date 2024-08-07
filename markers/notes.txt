@@ -1,3 +1,12 @@
 Markers from
 
 https://github.com/nicolocarpignoli/artoolkit-barcode-markers-collection/blob/master/5x5_bch_22_12_5/
+
+
+Marker generator
+https://au.gmented.com/app/marker/marker.php
+
+
+
+Good notes on markers for A frame
+https://github.com/nicolocarpignoli/artoolkit-barcode-markers-collection
