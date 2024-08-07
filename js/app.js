@@ -29,9 +29,8 @@ function Navigation() {
       <Switch>
           <Route exact path="/">              Home         </Route>
           <Route path="*"> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-            </svg>
+          <i className="fa-2xl fas fa-chevron-circle-left"></i>
+
           </Route>
        </Switch>
        </Navbar.Brand>
@@ -63,10 +62,11 @@ class App extends React.Component {
     render() {
       return (
             <Router>
-              <Container fluid>
-              <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+              {/* <*/}
+              {/* <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}> */}
                 <Navigation />
 
+                <Container fluid> 
                 <div style={{ flex: 1, overflow: 'auto', background: 'white' }}>
                   <Switch>
                     <Route exact path="/">              <Dashboard />         </Route>
@@ -77,7 +77,7 @@ class App extends React.Component {
                     <Route exact path="/pixels"> <Pixels/> </Route>
                   </Switch>
                 </div>
-              </div>
+              {/* </div> */}
               </Container>
             </Router>
       );
