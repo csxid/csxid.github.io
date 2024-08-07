@@ -28,7 +28,8 @@
         <a-marker type='barcode' value='6'>
           <a-entity scale="0.004 0.004 0.004" >  <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
 
-            <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-0.70 0 0" material="opacity:0.5;" ></a-entity>
+            <!-- -0.7 is too far back -->
+            <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-1.20 0 0" material="opacity:0.5;" ></a-entity>
             <a-box  scale="250 250 250" position='0 0 0' ></a-box>
             <!-- the position is applied first, before the scaling -->
 
