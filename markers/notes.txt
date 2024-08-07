@@ -1,10 +1,13 @@
 Markers from
-
 https://github.com/nicolocarpignoli/artoolkit-barcode-markers-collection/blob/master/5x5_bch_22_12_5/
 
 
 Marker generator
 https://au.gmented.com/app/marker/marker.php
+Use 4x4, BCH 13.5.5
+print 300 dpi format
+80 mm
+
 
 
 
