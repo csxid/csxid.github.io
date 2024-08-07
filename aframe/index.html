@@ -19,36 +19,52 @@
             <a-asset-item id="pgm-obj" src="./pgm.obj"></a-asset-item>
         </a-assets>
 
+        <a-marker preset='hiro'>
+          <a-entity obj-model="obj: #pgm-obj" scale="0.001 0.001 0.001" rotation="-90 0 0" position="-0.18 0 0" ></a-entity>
+          <!-- <a-box position='0 0 0' material='opacity: 0.5;'></a-box> -->
+          <!-- <a-box position='0 0.5 0' material='color: red;'></a-box> -->
+        </a-marker>
 
-        <!-- <a-marker type='barcode' value='6'> -->
-          <a-entity scale="0.004 0.004 0.004" >  
-            <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
+        <a-marker type='barcode' value='6'>
+          <a-entity scale="0.004 0.004 0.004" >  <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
 
-            <!-- <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-200 0 0" material="opacity:0.5;" ></a-entity> -->
+            <!-- -1.2, -0.7 is too far back -->
+             <!-- -500 -300  is too far forward -->
+            <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-200 0 0" material="opacity:0.5;" ></a-entity>
             <a-box  scale="250 250 250" position='0 0 0' ></a-box>
+
 
           </a-entity>
 
-        <!-- </a-marker> -->
+        </a-marker>
 
 
-        <a-box  position='0 0 0' ></a-box>
+        <!-- marker on the wall -->
+        <a-marker type='barcode' value='1' >
+          <a-entity scale="0.004 0.004 0.004" >  <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
+            <a-box position='0 0 0' scale="250 250 250" ></a-box> <!-- box over the marker -->
+            
+            <!-- position: -ve moves in z down beamline  -->
+             <!-- +ve moves outboard -->
+            <!-- +ve moves down -->
+            <a-entity position="0 1000 1000" rotation="-90 0 0"> 
 
-        <!-- <a-entity camera></a-entity> -->
-        <!-- <a-marker-camera type='barcode' value='6'></a-marker-camera> -->
-        <a-marker-camera preset='hiro'></a-marker-camera>
+              
+              <a-entity obj-model="obj: #pgm-obj"  rotation="-90 0 0" position="-200 0 0" material="opacity:0.5;" ></a-entity> 
+              <a-box position='0 0 0' scale="100 100 100" ></a-box>
+
+            </a-entity>
+          </a-entity>
+        </a-marker>
+
+      
+
+      <a-marker preset='kanji'>
+        <a-box position='0 0 0' material='opacity: 0.5;'></a-box>
+      </a-marker>
+
+        <a-entity camera></a-entity>
+        <!-- <a-marker-camera preset='hiro'></a-marker-camera> -->
       </a-scene>
-
-
-
-      <!-- <a-scene embedded arjs='sourceType: webcam;'>
-
-        <a-sphere position="0 0.5 0" radius="0.5" color="#EF2D5E"></a-sphere>
-        <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
-        <a-marker-camera preset='hiro'></a-marker-camera>
-    </a-scene> -->
-
-
-
   </body>
 </html>
