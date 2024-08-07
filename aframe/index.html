@@ -29,7 +29,8 @@
           <a-entity scale="0.004 0.004 0.004" >  <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
 
             <!-- -1.2, -0.7 is too far back -->
-            <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-500 0 0" material="opacity:0.5;" ></a-entity>
+             <!-- -500 is too far forward -->
+            <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-300 0 0" material="opacity:0.5;" ></a-entity>
             <a-box  scale="250 250 250" position='0 0 0' ></a-box>
             <!-- the position is applied first, before the scaling -->
 
@@ -44,10 +45,10 @@
           <a-entity scale="0.004 0.004 0.004" >  <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
             <a-box position='0 0 0' scale="250 250 250" ></a-box> <!-- box over the marker -->
             
+            <!-- position: -z,  -->
+            <a-entity position="0 -2000 0" rotation="-90 0 0"> 
 
-            <a-entity position="-1000 0 0" rotation="-90 0 0"> 
-
-              <!-- position: z,  -->
+              
               <a-entity obj-model="obj: #pgm-obj"  rotation="-90 0 0" position="-0.72 0 0" material="opacity:0.5;" ></a-entity> 
               <a-box position='0 0 0' scale="100 100 100" ></a-box>
 
