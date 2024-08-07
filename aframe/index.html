@@ -26,7 +26,14 @@
         </a-marker>
 
         <a-marker type='barcode' value='6'>
-          <a-entity obj-model="obj: #pgm-obj" scale="0.004 0.004 0.004" rotation="-90 0 0" position="-0.18 0 0" ></a-entity>
+          <a-entity scale="0.004 0.004 0.004" >  <!-- Scale by 1 / 250 = 0.004, for a 250 mm marker and obj in mm units -->
+
+            <a-entity obj-model="obj: #pgm-obj" rotation="-90 0 0" position="-0.18 0 0" material="opacity:0.5;" ></a-entity>
+            <a-box position='0 0 0' scale="100 100 100" ></a-box>
+
+
+          </a-entity>
+
         </a-marker>
 
 
