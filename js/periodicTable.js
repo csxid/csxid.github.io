@@ -34,6 +34,7 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
       <div>
           <link rel="stylesheet" href="./periodicTable.css" type="text/css"/>
 
+          <div className="grid-wrapper">
           <div className="grid-container">
             {elements.map((element, index) => {
               var classInfo = "element element-"+element.z
@@ -118,6 +119,7 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
               )
             })}
           </div>
+          </div>
       </div>
       );
   
@@ -126,9 +128,6 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
 
 
 function Filters({setEnergy}) {
-  // const [value, setValue] = React.useState(1);
-  // const [option, setOptions] = React.useState(1);
-
 
   const day1 = () => {
     setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 365, 'maxEnergyLV':2000, 'minEnergyCP': 276, 'maxEnergyCP':2000});
@@ -143,13 +142,6 @@ function Filters({setEnergy}) {
     setEnergy({'minEnergyLH': 250, 'maxEnergyLH':3500, 'minEnergyLV': 500, 'maxEnergyLV':3500, 'minEnergyCP': 380, 'maxEnergyCP':2150});
   };
 
-  
-
-  // const handleChange = function(e){
-  //   console.log("handle change");
-  //   // setValue(val);
-  //   console.log(e.target);
-  // }
 
   return (
     <div>
@@ -211,8 +203,8 @@ function EdgeInfo( {energy, element} ) {
   );
 }
 
-function EdgeTable( {energy, selectedEdges} ) {
 
+function EdgeTable( {energy, selectedEdges} ) {
     return (
       <div>
         <Table striped bordered hover size="sm">
