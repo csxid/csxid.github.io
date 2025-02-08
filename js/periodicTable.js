@@ -209,26 +209,36 @@ function EdgeTable( {energy, selectedEdges} ) {
       <div>
         <Table striped bordered hover size="sm">
               <thead>
+              <tr>
+                  <th className="align-top" rowSpan={2} style={{width: "35%"}}>Edge</th>
+                  <th className="align-top" rowSpan={2} style={{width: "35%"}}>Energy</th>
+                  {/* <th style={{width: "25%"}}>Availability</th> */}
+                  <th className="text-center" colSpan={3} >Polarisation</th>
+                  
+                </tr> 
                 <tr>
-                  <th style={{width: "33%"}}>Edge</th>
-                  <th style={{width: "33%"}}>Energy</th>
-                  <th style={{width: "33%"}}>Availability</th>
+                  <th className="text-center" style={{width: "10%"}}><i className="fa-solid fa-lg fa-arrow-rotate-right"></i></th>
+                  <th className="text-center" style={{width: "10%"}}><i className="fa-solid fa-lg fa-arrows-left-right"></i></th>
+                  <th className="text-center" style={{width: "10%"}}><i className="fa-solid fa-lg fa-arrows-up-down"></i></th>
                 </tr> 
               </thead>
 
               <tbody>
                   {selectedEdges.map((edge, index) => {
 
-                    var availability = "";
-                    availability    += ((edge.energy >= energy.minEnergyCP) & (edge.energy <= energy.maxEnergyCP)) ? "CP " : "" 
-                    availability    += ((edge.energy >= energy.minEnergyLH) & (edge.energy <= energy.maxEnergyLH)) ? "LH " : "" 
-                    availability    += ((edge.energy >= energy.minEnergyLV) & (edge.energy <= energy.maxEnergyLV)) ? "LV " : "" 
+                    // var availability = "";
+                    // availability    += ((edge.energy >= energy.minEnergyCP) & (edge.energy <= energy.maxEnergyCP)) ? "CP " : "" 
+                    // availability    += ((edge.energy >= energy.minEnergyLH) & (edge.energy <= energy.maxEnergyLH)) ? "LH " : "" 
+                    // availability    += ((edge.energy >= energy.minEnergyLV) & (edge.energy <= energy.maxEnergyLV)) ? "LV " : "" 
 
                     return (
                       <tr key={index} >
                         <td> {edge.element} {edge.edge.slice(0, 1)}<sub>{edge.edge.slice(1, edge.edge.length)}</sub> </td>
                         <td> {edge.energy.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} eV </td>
-                        <td> {availability} </td>
+                        {/* <td> {availability} </td> */}
+                        <td className="text-center"> {((edge.energy >= energy.minEnergyCP) & (edge.energy <= energy.maxEnergyCP)) ? (<i className="fa-solid fa-check"></i>) : "" } </td>
+                        <td className="text-center"> {((edge.energy >= energy.minEnergyLH) & (edge.energy <= energy.maxEnergyLH)) ? (<i className="fa-solid fa-check"></i>) : "" } </td>
+                        <td className="text-center"> {((edge.energy >= energy.minEnergyLV) & (edge.energy <= energy.maxEnergyLV)) ? (<i className="fa-solid fa-check"></i>) : "" } </td>
                       </tr>
                     )
                   })}
