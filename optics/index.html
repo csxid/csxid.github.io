@@ -20,7 +20,7 @@
 			const scene = new THREE.Scene();
             scene.background = new THREE.Color( 0xffffff );
 
-			const camera = new THREE.PerspectiveCamera( 2, window.innerWidth / window.innerHeight, 0.1, 10000 );
+			const camera = new THREE.PerspectiveCamera( 1.5, window.innerWidth / window.innerHeight, 0.1, 10000 );
 
 			const renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -31,6 +31,7 @@
             //controls.update() must be called after any manual changes to the camera's transform
             // camera.position.set( -100, 50, -100 );
             camera.position.set( 100, 50, 100 );
+            
             controls.update();
 
             scene.add(lighting());
@@ -44,42 +45,8 @@
             // scene.add( new THREE.ArrowHelper( new THREE.Vector3( 0,0,1 ), arrowPos, 2, 0x7F2020, 0.1, 0.1 ) );
 
 
-            var parameters;
-
-
             const angleFactor = 2;
             const pgmOffset = 0.1;
-
-            // let params = new Object();
-            // params["M1"] = new Object();
-            // params["M1"]['position'] = 25.5;
-            // params["M1"]['angle'] = 0.8;
-
-            // params["M2"] = new Object();
-            // params["M2"]['position'] = 29.3;
-            // params["M2"]['angle'] = 0.8;
-
-            // params["M3"] = new Object();
-            // params["M3"]['position'] =31.2;
-            // params["M3"]['angle'] = 0.9;
-
-            // params["M4"] = new Object();
-            // params["M4"]['position'] =39.2;
-            // params["M4"]['angle'] = 0.9;
-
-            // params["M5"] = new Object();
-            // params["M5"]['position'] =31.2;
-            // params["M5"]['angle'] = -0.7;
-
-            // params["M6"] = new Object();
-            // params["M6"]['position'] =37.0;
-            // params["M6"]['angle'] = -0.7;
-
-            // params["S4"] = new Object();
-            // params["S4"]['position'] = 46.5;
-
-            // params["S5"] = new Object();
-            // params["S5"]['position'] = 40.5;
 
 
 
@@ -128,16 +95,20 @@
             const beamline = new THREE.Group();
 
             // allows the center of camera rotation to be adjusted
-            beamline.position.z = - params["M3"]['position'];
+            beamline.position.z = - 27;
             scene.add(beamline);
 
         
 
             const section1 = new THREE.Group();
+            const ID = IDsystem();
+            ID.position.z = 23;  
+            section1.add(ID);
+
             const M1 = mirrorM1();
             M1.position.z = params["M1"]['position'];            
             section1.add(M1);
-            section1.add(beam(0, params["M1"]['position']));
+            section1.add(beam(23, params["M1"]['position']));
             beamline.add(section1);
 
 

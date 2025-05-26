@@ -1,3 +1,34 @@
+function IDsystem(){
+    const out = new THREE.Group();
+
+    const length = 1;
+    var width = 0.05;
+    var gap = 0.01;
+
+    const substrateMaterial = new THREE.MeshStandardMaterial( { color: 0xaaaaaa, roughness:0 } );
+    const q1 = new THREE.Mesh( new THREE.BoxGeometry(width, width, length), substrateMaterial );
+    const q2 = new THREE.Mesh( new THREE.BoxGeometry(width, width, length), substrateMaterial );
+    const q3 = new THREE.Mesh( new THREE.BoxGeometry(width, width, length), substrateMaterial );
+    const q4 = new THREE.Mesh( new THREE.BoxGeometry(width, width, length), substrateMaterial );
+    q1.translateX(width/2 + gap/2);
+    q2.translateX(width/2 + gap/2);
+    q3.translateX(-width/2 - gap/2);
+    q4.translateX(-width/2 - gap/2);
+
+    q1.translateY(width/2 + gap/2);
+    q2.translateY(-width/2 - gap/2);
+    q3.translateY(width/2 + gap/2);
+    q4.translateY(-width/2 - gap/2);
+
+    out.add(q1);
+    out.add(q2);
+    out.add(q3);
+    out.add(q4);
+
+    return out;
+}
+
+
 function optic(angle, stripes=["Ni"]){
     const out = new THREE.Group();
 
