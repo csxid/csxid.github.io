@@ -39,7 +39,7 @@ function Navigation() {
         <Nav.Link eventKey="1" as={Link} to="/periodicTable">Energy & Polarisation</Nav.Link>
         <Nav.Link eventKey="2" as={Link} to="/magneticField">Magnetic Field</Nav.Link>
         <Nav.Link eventKey="3" as={Link} to="/ar">AR</Nav.Link>
-        <Nav.Link eventKey="4" as={Link} to="/aframe">Aframe</Nav.Link>
+        <Nav.Link eventKey="4" as={Link} to="/tour">Tour</Nav.Link>
         <Nav.Link eventKey="5" as={Link} to="/pixels">Pixels</Nav.Link>
       </Nav>
     </Navbar.Collapse>
@@ -67,7 +67,7 @@ class App extends React.Component {
                     <Route exact path="/periodicTable"> <PeriodicTablePage /> </Route>
                     <Route exact path="/magneticField"> <MagneticFieldPage /> </Route>
                     <Route exact path="/ar"> <AR /> </Route>
-                    <Route exact path="/aframe"> <Aframe /> </Route>
+                    <Route exact path="/tour"> <Tour /> </Route>
                     <Route exact path="/pixels"> <Pixels/> </Route>
                   </Switch>
                 </div>

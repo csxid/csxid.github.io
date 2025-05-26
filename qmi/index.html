@@ -45,25 +45,6 @@
             scene.add( new THREE.ArrowHelper( new THREE.Vector3( 0,0,1 ), arrowPos, 2, 0x7F2020, 0.1, 0.1 ) );
 
 
-            // var material = new THREE.MeshStandardMaterial( { color: 0xeeeeee, roughness:0 } );
-            // var geometry = new TextGeometry( 'Hello three.js!', {
-            //     font: font,
-            //     size: 80,
-            //     height: 5,
-            //     curveSegments: 12,
-            //     bevelEnabled: true,
-            //     bevelThickness: 10,
-            //     bevelSize: 8,
-            //     bevelOffset: 0,
-            //     bevelSegments: 5
-            // } );
-
-
-            // scene.add( new THREE.Mesh( geometry, material ));
-
-
-
-
             var beamSizeAtSample = 0.020; // in mm
 
             var settings = new function() { 
@@ -225,7 +206,7 @@
 
         rotation.onChange(function(value) {   
             sampleRotation.rotation.z = value*Math.PI/180;
-            console.log(tilt);
+            // console.log(tilt);
             // tilt.set(0);
             parameters.tilt = 0;
         });

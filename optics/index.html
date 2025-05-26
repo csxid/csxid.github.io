@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Optics schematic</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+        <script src="js/OrbitControls2.js"></script>
+        <script src="js/components.js"></script>
+
+        <script>
+            
+            OrbitControls = THREE.OrbitControls;
+
+			const scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0xffffff );
+
+			const camera = new THREE.PerspectiveCamera( 2, window.innerWidth / window.innerHeight, 0.1, 10000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+        
+			document.body.appendChild( renderer.domElement );
+            
+            const controls = new OrbitControls( camera, renderer.domElement );
+            //controls.update() must be called after any manual changes to the camera's transform
+            camera.position.set( -100, 50, -100 );
+            camera.position.set( -100, 50, 100 );
+            controls.update();
+
+            scene.add(lighting());
+
+            const axesHelper = new THREE.AxesHelper( 2 );
+            scene.add( axesHelper );
+            // console.log(axesHelper);
+
+            var arrowPos = new THREE.Vector3( 0,0,0.01 );
+            scene.add( new THREE.ArrowHelper( new THREE.Vector3( 1,0,0 ), arrowPos, 2, 0x7F2020, 0.1, 0.1 ) ); // dir, origin, length, hex
+            scene.add( new THREE.ArrowHelper( new THREE.Vector3( 0,1,0 ), arrowPos, 2, 0x7F2020, 0.1, 0.1 ) );
+            scene.add( new THREE.ArrowHelper( new THREE.Vector3( 0,0,1 ), arrowPos, 2, 0x7F2020, 0.1, 0.1 ) );
+
+
+            var parameters;
+
+
+            const angleFactor = 2;
+
+            let params = new Object();
+            params["M1"] = new Object();
+            params["M1"]['position'] = 25.5;
+            params["M1"]['angle'] = 0.8;
+
+            params["M2"] = new Object();
+            params["M2"]['position'] = 29.3;
+            params["M2"]['angle'] = 0.8;
+
+            params["M3"] = new Object();
+            params["M3"]['position'] =31.2;
+            params["M3"]['angle'] = 0.9;
+
+            params["M4"] = new Object();
+            params["M4"]['position'] =39.2;
+            params["M4"]['angle'] = 0.9;
+
+
+            params["M5"] = new Object();
+            params["M5"]['position'] =31.2;
+            params["M5"]['angle'] = -0.7;
+
+            params["M6"] = new Object();
+            params["M6"]['position'] =37.0;
+            params["M6"]['angle'] = -0.7;
+
+
+            const beamline = new THREE.Group();
+
+            // allows the center of camera rotation to be adjusted
+            beamline.position.z = -30;
+            scene.add(beamline);
+
+        
+
+            const section1 = new THREE.Group();
+            const M1 = optic(params["M1"]['angle']*angleFactor);
+            M1.position.z = params["M1"]['position'];            
+            section1.add(M1);
+            section1.add(beam(0, params["M1"]['position']));
+            beamline.add(section1);
+
+
+
+
+            const section2 = new THREE.Group();
+            const M2 = optic(params["M2"]['angle']*angleFactor);
+            M2.position.z = params["M2"]['position'];
+
+            section2.add(M2.rotateZ(Math.PI/2));
+            section2.add(beam(params["M1"]['position'], params["M2"]['position']));
+            
+
+            const section2shift = new THREE.Group();
+            // section2shift.add( axesHelper );
+            section2shift.add(section2);
+            section1.add(section2shift);
+
+            section2.position.z = -params["M1"]['position']; 
+            section2shift.rotateY(Math.PI/180* params["M1"]['angle']*angleFactor * 2);
+            section2shift.position.z = params["M1"]['position']; 
+
+
+
+
+
+
+
+            const section3 = new THREE.Group();
+            const M3 = optic(params["M3"]['angle']*angleFactor);
+            M3.position.z = params["M3"]['position'];
+
+            const M5 = optic(params["M5"]['angle']*angleFactor);
+            M5.position.z = params["M5"]['position'];
+
+            section3.add(M3);
+            section3.add(M5);
+            section3.add(beam(params["M2"]['position'], params["M3"]['position']));
+            
+
+            const section3shift = new THREE.Group();
+            section3shift.add( axesHelper );
+            section3shift.add(section3);
+            section2.add(section3shift);
+
+            section3.position.z = -params["M2"]['position']; 
+            // section3shift.rotateY(Math.PI/180* params["M2"]['angle']*angleFactor * 2);
+            section3shift.position.z = params["M2"]['position']; 
+
+
+
+
+
+            
+            const section4 = new THREE.Group();
+            const M4 = optic(params["M4"]['angle']*angleFactor);
+            M4.position.z = params["M4"]['position'];
+
+            section4.add(M4);
+            section4.add(beam(params["M3"]['position'], params["M4"]['position']));
+            
+
+            const section4shift = new THREE.Group();
+            section4shift.add( axesHelper );
+            section4shift.add(section4);
+            section3.add(section4shift);
+
+            section4.position.z = -params["M3"]['position']; 
+            section4shift.rotateY(Math.PI/180* params["M3"]['angle']*angleFactor * 2);
+            section4shift.position.z = params["M3"]['position']; 
+            
+
+                    
+            // section 5 is including the QMI
+
+
+
+
+
+            const section6 = new THREE.Group();
+            const M6 = optic(params["M6"]['angle']*angleFactor);
+            M6.position.z = params["M6"]['position'];
+
+            section6.add(M6);
+            section6.add(beam(params["M5"]['position'], params["M6"]['position']));
+            
+
+            const section6shift = new THREE.Group();
+            section6shift.add( axesHelper );
+            section6shift.add(section4);
+            section3.add(section6shift);
+
+            section6.position.z = -params["M5"]['position']; 
+            section6shift.rotateY(Math.PI/180* params["M5"]['angle']*angleFactor * 2);
+            section6shift.position.z = params["M5"]['position']; 
+            
+
+
+
+			const animate = function () {
+				requestAnimationFrame( animate );
+                controls.update();
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+
+
+
+
+
+
+
+	</body>
+</html>
