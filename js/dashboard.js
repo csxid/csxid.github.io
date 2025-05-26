@@ -43,11 +43,11 @@ const useNavigate = ReactRouterDOM.useNavigate;
 // }
 
 
-function Aframe() {
+function Tour() {
 
   return (
     <div>
-      <h1> Aframe </h1>
+      <h1> Beamline tour </h1>
       Click here to enter the beamline argumented reality
       <a href="./aframe"> here </a>
 
@@ -94,13 +94,6 @@ function Examples() {
 
 
 function Dashboard() {
-  const [energy, setEnergy] = React.useState(700);
-  const [laa, setLaa] = React.useState(0);
-  const [coherence, setCoherence] = React.useState(1);
-
-  // const navigate = useNavigate();
-  // const handleClick = () => navigate('/aframe');
-
     return (
       <div>
         {/* <ScanVisualization></ScanVisualization> */}
@@ -121,7 +114,7 @@ function Dashboard() {
         </Card>
 
         <Card style={{ backgroundColor: '#6EBAA7' }} >
-          <Link to="/aframe" style={{ textDecoration: 'inherit', color: 'inherit' }}>
+          <Link to="/tour" style={{ textDecoration: 'inherit', color: 'inherit' }}>
           <Card.Body>
             <Container>
             <Row>
@@ -134,14 +127,14 @@ function Dashboard() {
         </Card>
 
 
-        <Card  >
-          
+        {/* <Card  >
+
           <Card.Body>
           <Card.Title>3D imaging of electronic circuits at PSI </Card.Title>
             <Examples />
           </Card.Body>
 
-        </Card>
+        </Card> */}
           
         </Row>
 
