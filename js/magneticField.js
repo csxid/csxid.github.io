@@ -20,26 +20,7 @@ function MagneticFieldPage() {
 
 
         <Col md={6} >
-          <ViewField minMagnitudeOOP={-1} maxMagnitudeOOP={1} maxMagnitudeIP={4}/>
-        </Col> 
-        <Col md={6} >
-          <h1> Vector : bipolar 1 </h1>
-          <p> Concept to be explored </p>
-          <ViewTable minMagnitudeOOP={"-125 mT"} maxMagnitudeOOP={"125 mT"} minMagnitudeIP={"~0 mT"} maxMagnitudeIP={"250 mT"} minPhi={"0 degrees"} maxPhi={"360 degrees"}/>
-        </Col> 
-
-
-        <Col md={6} >
-          <ViewField minMagnitudeOOP={0} maxMagnitudeOOP={4} maxMagnitudeIP={4}/>
-        </Col>
-        <Col md={6} >
-          <h1> Vector : unipolar </h1>
-          <p> From magnet group modeling </p>
-          <ViewTable minMagnitudeOOP={"~0 mT"} maxMagnitudeOOP={"250 mT"} minMagnitudeIP={"~0 mT"} maxMagnitudeIP={"250 mT"} minPhi={"0 degrees"} maxPhi={"360 degrees"}/>
-        </Col> 
-
-        <Col md={6} >
-          <ViewField minMagnitudeOOP={0} maxMagnitudeOOP={0.1} maxMagnitudeIP={8}/>
+          <ViewField rangeIP={[5,400]} rangeOOP={[0,0]}/>
         </Col>
         <Col md={6} >
           <h1> In-plane : high field </h1>
@@ -47,8 +28,29 @@ function MagneticFieldPage() {
           <ViewTable minMagnitudeOOP={"n/a"} maxMagnitudeOOP={"n/a"} minMagnitudeIP={"~0 mT"} maxMagnitudeIP={"460 mT"} minPhi={"0 degrees"} maxPhi={"360 degrees"}/>
         </Col> 
 
+
         <Col md={6} >
-          <ViewField minMagnitudeOOP={0} maxMagnitudeOOP={8} maxMagnitudeIP={0.1}/>
+          <ViewField rangeIP={[5,250]} rangeOOP={[0,125]} />
+        </Col> 
+        <Col md={6} >
+          <h1> hybrid </h1>
+          <ViewTable minMagnitudeOOP={"-125 mT"} maxMagnitudeOOP={"125 mT"} minMagnitudeIP={"~0 mT"} maxMagnitudeIP={"250 mT"} minPhi={"0 degrees"} maxPhi={"360 degrees"}/>
+        </Col> 
+
+
+        <Col md={6} >
+          <ViewField rangeIP={[0,0]} rangeOOP={[-125,125]} />
+        </Col>
+        <Col md={6} >
+          <h1> Vector : unipolar </h1>
+          <p> From magnet group modeling </p>
+          <ViewTable minMagnitudeOOP={"~0 mT"} maxMagnitudeOOP={"250 mT"} minMagnitudeIP={"~0 mT"} maxMagnitudeIP={"250 mT"} minPhi={"0 degrees"} maxPhi={"360 degrees"}/>
+        </Col> 
+
+
+
+        <Col md={6} >
+          <ViewField rangeIP={[0,0]} rangeOOP={[0,250]} />
         </Col>
         <Col md={6} >
           <h1> Out-of-plane : high field </h1>
@@ -56,14 +58,7 @@ function MagneticFieldPage() {
           <ViewTable minMagnitudeOOP={"~0 mT"} maxMagnitudeOOP={"420 mT"} minMagnitudeIP={"n/a"} maxMagnitudeIP={"n/a"} minPhi={"n/a"} maxPhi={"n/a"}/>
         </Col> 
 
-        <Col md={6} >
-          <ViewField minMagnitudeOOP={-4} maxMagnitudeOOP={4} maxMagnitudeIP={0.1}/>
-        </Col>
-        <Col md={6} >
-          <h1> Out-of-plane : bipolar </h1>
-          <p>  Concept to be explored </p>
-          <ViewTable minMagnitudeOOP={"-250 mT"} maxMagnitudeOOP={"250 mT"} minMagnitudeIP={"n/a"} maxMagnitudeIP={"n/a"} minPhi={"n/a"} maxPhi={"n/a"}/>
-        </Col> 
+
 
       </Row>
     </Container>
@@ -103,7 +98,14 @@ function ViewTable({minMagnitudeOOP, maxMagnitudeOOP, minMagnitudeIP, maxMagnitu
   );
 }
 
-function ViewField({minMagnitudeOOP, maxMagnitudeOOP, maxMagnitudeIP}) {
+function ViewField({ rangeIP, rangeOOP}) {
+
+  const minMagnitudeOOP = rangeOOP[0] / 100;
+  const maxMagnitudeOOP = rangeOOP[1] / 100;
+
+  // 0.1 allows the cylinder to be visible even if there is no IP range
+  const maxMagnitudeIP = Math.max( rangeIP[1] / 100 , 0.1);
+  
 
   const divRef = React.useRef();
 
@@ -131,7 +133,7 @@ function ViewField({minMagnitudeOOP, maxMagnitudeOOP, maxMagnitudeIP}) {
   }, []);
 
  
-  camera.position.set( 200, 50, 200 );
+  camera.position.set( 200, 50, 100 );
 
   const lights = new THREE.Group();
   lights.add( new THREE.AmbientLight( 0x404040 ) );
@@ -157,9 +159,11 @@ function ViewField({minMagnitudeOOP, maxMagnitudeOOP, maxMagnitudeIP}) {
   scene.add( new THREE.Mesh( sampleGeometry, sampleMaterial ) ); 
 
 
-  const height = (maxMagnitudeOOP-minMagnitudeOOP);
+  // field range cylinder
+  const height = Math.max((maxMagnitudeOOP - minMagnitudeOOP) , 0.1);
   const radius = maxMagnitudeIP;
-  const geometry = new THREE.CylinderGeometry(radius, radius, height, 36,1).translate(0,height/2+minMagnitudeOOP,0);
+
+  const geometry = new THREE.CylinderGeometry(radius, radius, height, 36, 1).translate(0, height/2+minMagnitudeOOP, 0);
   const material = new THREE.MeshStandardMaterial( { color: 0x9900ff, roughness:0,  opacity:0.2, transparent:true  } );
   scene.add( new THREE.Mesh( geometry, material ));
 
