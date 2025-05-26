@@ -5,10 +5,6 @@ const Router = ReactRouterDOM.HashRouter;
 const Routes = ReactRouterDOM.Routes;
 const Switch = ReactRouterDOM.Switch;
 
-// const Nav = ReactBootstrap.Nav;
-// const Navbar = ReactBootstrap.Navbar;
-// const NavDropdown = ReactBootstrap.NavDropdown;
-
 const {Nav, Navbar, NavDropdown, Form, Button , Container, Row, Col, Table, ToggleButton, ToggleButtonGroup, Card, Alert} = ReactBootstrap;
 
 // const {Link, Route, BrowserRouter, Router, Routes, Switch} = ReactRouterDOM;
@@ -62,8 +58,6 @@ class App extends React.Component {
     render() {
       return (
             <Router>
-              {/* <*/}
-              {/* <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}> */}
                 <Navigation />
 
                 <Container fluid> 
@@ -77,7 +71,6 @@ class App extends React.Component {
                     <Route exact path="/pixels"> <Pixels/> </Route>
                   </Switch>
                 </div>
-              {/* </div> */}
               </Container>
             </Router>
       );

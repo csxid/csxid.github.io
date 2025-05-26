@@ -6,13 +6,6 @@ function PeriodicTablePage() {
 
   return(
     <div>
-      {/* <Form.Range min={0} max={500} value={energy.minEnergyLH} onChange={(e) => {setEnergy(prev => ({...prev, 'minEnergyLH':e.target.value}))}}/> */}
-      {/* <Form.Control value={energy.minEnergyLH} /> */}
-      {/* <Form.Range min={0} max={500} value={energy.minEnergyLV} onChange={(e) => {setEnergy(prev => ({...prev, 'minEnergyLV':e.target.value}))}}/> */}
-      {/* <Form.Control value={energy.minEnergyLV} /> */}
-      {/* <Form.Range min={0} max={500} value={minEnergyCP} onChange={(e) => {setMinEnergyCP(e.target.value)}}/> */}
-      {/* <Form.Control value={energy.minEnergyCP} /> */}
-
       <PeriodicTable selectedElement={selectedElement} setSelectedElement={setSelectedElement} energy={energy} />
       <br></br>
       <Filters setEnergy={setEnergy}/>
@@ -32,7 +25,7 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
   
     return (
       <div>
-          <link rel="stylesheet" href="./periodicTable.css" type="text/css"/>
+          <link rel="stylesheet" href="./components/energy/periodicTable.css" type="text/css"/>
 
           <div className="grid-wrapper">
           <div className="grid-container">
@@ -225,17 +218,10 @@ function EdgeTable( {energy, selectedEdges} ) {
 
               <tbody>
                   {selectedEdges.map((edge, index) => {
-
-                    // var availability = "";
-                    // availability    += ((edge.energy >= energy.minEnergyCP) & (edge.energy <= energy.maxEnergyCP)) ? "CP " : "" 
-                    // availability    += ((edge.energy >= energy.minEnergyLH) & (edge.energy <= energy.maxEnergyLH)) ? "LH " : "" 
-                    // availability    += ((edge.energy >= energy.minEnergyLV) & (edge.energy <= energy.maxEnergyLV)) ? "LV " : "" 
-
                     return (
                       <tr key={index} >
                         <td> {edge.element} {edge.edge.slice(0, 1)}<sub>{edge.edge.slice(1, edge.edge.length)}</sub> </td>
                         <td> {edge.energy.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} eV </td>
-                        {/* <td> {availability} </td> */}
                         <td className="text-center"> {((edge.energy >= energy.minEnergyCP) & (edge.energy <= energy.maxEnergyCP)) ? (<i className="fa-solid fa-check"></i>) : "" } </td>
                         <td className="text-center"> {((edge.energy >= energy.minEnergyLH) & (edge.energy <= energy.maxEnergyLH)) ? (<i className="fa-solid fa-check"></i>) : "" } </td>
                         <td className="text-center"> {((edge.energy >= energy.minEnergyLV) & (edge.energy <= energy.maxEnergyLV)) ? (<i className="fa-solid fa-check"></i>) : "" } </td>
