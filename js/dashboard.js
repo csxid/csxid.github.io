@@ -127,6 +127,18 @@ function Dashboard() {
         </Card>
 
 
+        <Card >
+          <Link to="optics" style={{ textDecoration: 'inherit', color: 'inherit' }}>
+          <Card.Body>
+            <Card.Body>
+            <Card.Title>Optics schematic</Card.Title> 
+            <Image src="images/optics.png" fluid/> 
+            </Card.Body>
+          </Card.Body>
+          </Link>
+        </Card>
+
+
         {/* <Card  >
 
           <Card.Body>

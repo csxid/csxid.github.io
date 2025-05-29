@@ -55,6 +55,12 @@
             params["M1"]['position'] = 25;
             params["M1"]['angle'] = 0.8;
 
+            params["S1"] = new Object();
+            params["S1"]['position'] = 24.6;
+
+            params["S2"] = new Object();
+            params["S2"]['position'] = 25.4;
+
             params["M2"] = new Object();
             params["M2"]['position'] = 26;
             params["M2"]['angle'] = 0.8;
@@ -68,7 +74,7 @@
             params["M4"]['angle'] = 0.9;
 
             params["S4"] = new Object();
-            params["S4"]['position'] = 31;
+            params["S4"]['position'] = 30.5;
 
             params["QMI_FZP"] = new Object();
             params["QMI_FZP"]['position'] = params["S4"]['position'] + 1;
@@ -81,6 +87,9 @@
             params["M6"] = new Object();
             params["M6"]['position'] = 28.5;
             params["M6"]['angle'] = -0.7;
+
+
+
 
             params["S5"] = new Object();
             params["S5"]['position'] = 29.5;
@@ -108,6 +117,15 @@
             const M1 = mirrorM1();
             M1.position.z = params["M1"]['position'];            
             section1.add(M1);
+
+            S1 = slits();
+            S1.position.z = params["S1"]['position']
+            section1.add(S1);
+
+            S2 = slits();
+            S2.position.z = params["S2"]['position']
+            section1.add(S2);
+
             section1.add(beam(23, params["M1"]['position']));
             beamline.add(section1);
 
@@ -175,6 +193,10 @@
                     
             // section 5 is including the QMI
             const section5 = new THREE.Group();
+            S4 = slits();
+            S4.position.z = params["S4"]['position']
+            section5.add(S4);
+
             section5.add(beam(params["M4"]['position'], params["S4"]['position']));
             section5.add(beam(params["S4"]['position'], params["QMI_FZP"]['position']));
             section5.add(FZP().translateZ(params["QMI_FZP"]['position']));
@@ -213,6 +235,10 @@
 
             // section 7 is including the FMI
             const section7 = new THREE.Group();
+            S5 = slits();
+            S5.position.z = params["S5"]['position']
+            section7.add(S5);
+
             section7.add(beam(params["M6"]['position'], params["S5"]['position']));
             section7.add(FZP().translateZ(params["FMI_FZP"]['position']));
             section7.add(beam(params["S5"]['position'], params["FMI_FZP"]['position']));
