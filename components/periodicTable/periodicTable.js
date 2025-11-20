@@ -122,17 +122,7 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
 
 function Filters({setEnergy}) {
 
-<<<<<<< HEAD
   const day1 = () => {
-=======
-  // const day1 = () => {
-  //   setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 365, 'maxEnergyLV':2000, 'minEnergyCP': 276, 'maxEnergyCP':2000});
-  // };
-  // const risk = () => {
-  //   setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 500, 'maxEnergyLV':2000, 'minEnergyCP': 380, 'maxEnergyCP':2000});
-  // };
-  const upgrade = () => {
->>>>>>> f154a43df17cc4d6c3f8b39db8ce9f6e68ac026a
     setEnergy({'minEnergyLH': 250, 'maxEnergyLH':3500, 'minEnergyLV': 365, 'maxEnergyLV':3500, 'minEnergyCP': 276, 'maxEnergyCP':2150});
   };
   const upgradeRisk = () => {
@@ -143,13 +133,7 @@ function Filters({setEnergy}) {
   return (
     <div>
 
-<<<<<<< HEAD
     <Button variant="outline-primary" onClick={day1}> Day 1 </Button>
-=======
-    {/* <Button variant="outline-primary" onClick={day1}> Day 1 </Button>
-    <Button variant="outline-primary" onClick={risk}> Risk </Button> */}
-    <Button variant="outline-primary" onClick={upgrade}> Day 1 </Button>
->>>>>>> f154a43df17cc4d6c3f8b39db8ce9f6e68ac026a
     <Button variant="outline-primary" onClick={upgradeRisk}> Risk </Button>
 
     </div>
