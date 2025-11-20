@@ -25,7 +25,7 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
   
     return (
       <div>
-          <link rel="stylesheet" href="./components/energy/periodicTable.css" type="text/css"/>
+          <link rel="stylesheet" href="./components/periodicTable/periodicTable.css" type="text/css"/>
 
           <div className="grid-wrapper">
           <div className="grid-container">
@@ -122,12 +122,12 @@ function PeriodicTable({selectedElement, setSelectedElement, energy}) {
 
 function Filters({setEnergy}) {
 
-  const day1 = () => {
-    setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 365, 'maxEnergyLV':2000, 'minEnergyCP': 276, 'maxEnergyCP':2000});
-  };
-  const risk = () => {
-    setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 500, 'maxEnergyLV':2000, 'minEnergyCP': 380, 'maxEnergyCP':2000});
-  };
+  // const day1 = () => {
+  //   setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 365, 'maxEnergyLV':2000, 'minEnergyCP': 276, 'maxEnergyCP':2000});
+  // };
+  // const risk = () => {
+  //   setEnergy({'minEnergyLH': 250, 'maxEnergyLH':2000, 'minEnergyLV': 500, 'maxEnergyLV':2000, 'minEnergyCP': 380, 'maxEnergyCP':2000});
+  // };
   const upgrade = () => {
     setEnergy({'minEnergyLH': 250, 'maxEnergyLH':3500, 'minEnergyLV': 365, 'maxEnergyLV':3500, 'minEnergyCP': 276, 'maxEnergyCP':2150});
   };
@@ -139,38 +139,10 @@ function Filters({setEnergy}) {
   return (
     <div>
 
-    <Button variant="outline-primary" onClick={day1}> Day 1 </Button>
-    <Button variant="outline-primary" onClick={risk}> Risk </Button>
-    <Button variant="outline-primary" onClick={upgrade}> Upgrade </Button>
-    <Button variant="outline-primary" onClick={upgradeRisk}> Upgrade Risk </Button>
-
-    {/* <ToggleButtonGroup type="radio" value={value} onChange={handleChange}>
-          <ToggleButton variant="outline-primary" value={1}> Day 1 </ToggleButton>
-          <ToggleButton variant="outline-primary" value={2}> Day 1 (risk) </ToggleButton>
-          <ToggleButton variant="outline-primary" value={3}> Upgrade </ToggleButton>
-          <ToggleButton variant="outline-primary" value={4}> Upgrade (risk) </ToggleButton>
-    </ToggleButtonGroup> */}
-
-{/* <ToggleButtonGroup type="radio" name="options" value={option} onClick={handleChange}>
-      <ToggleButton variant="outline-primary" value={1}>Radio 1 (pre-checked)</ToggleButton>
-      <ToggleButton variant="outline-primary" value={2}>Radio 2</ToggleButton>
-      <ToggleButton variant="outline-primary" value={3}>Radio 3</ToggleButton>
-    </ToggleButtonGroup> */}
-
-
-
-      {/* <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-      <ToggleButton id="tbg-btn-1" variant="outline-primary" value={"K"}> K </ToggleButton>
-
-      <ToggleButton id="tbg-btn-2" variant="outline-primary" value={"L1"}> L1 </ToggleButton>
-      <ToggleButton id="tbg-btn-3" variant="outline-primary" value={"L2L3"}> L2/L3 </ToggleButton>
-
-      <ToggleButton id="tbg-btn-4" variant="outline-primary" value={"M1"}> M1 </ToggleButton>
-      <ToggleButton id="tbg-btn-5" variant="outline-primary" value={"M2M3"}> M2/M3 </ToggleButton>
-      <ToggleButton id="tbg-btn-6" variant="outline-primary" value={"MM4M5"}> M4/M5 </ToggleButton>
-    </ToggleButtonGroup> */}
-
-
+    {/* <Button variant="outline-primary" onClick={day1}> Day 1 </Button>
+    <Button variant="outline-primary" onClick={risk}> Risk </Button> */}
+    <Button variant="outline-primary" onClick={upgrade}> Day 1 </Button>
+    <Button variant="outline-primary" onClick={upgradeRisk}> Risk </Button>
 
     </div>
   );
